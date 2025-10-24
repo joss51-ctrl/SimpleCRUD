@@ -26,7 +26,7 @@ function App() {
     if (editingId) {
       // Update
       await fetch(`http://localhost:5000/users/${editingId}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
