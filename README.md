@@ -1,6 +1,6 @@
-*Simple CRUD Users Management with a statistic dashboard based on gender.*  
+## Simple CRUD Users Management with a statistic dashboard based on gender.
 
-*Tools*
+## Tools
 | Frontend | React, TailwindCSS|
 | Backend | Node.js, Express.js, SQL |
 
