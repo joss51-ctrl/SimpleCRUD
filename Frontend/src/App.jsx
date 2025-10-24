@@ -24,7 +24,7 @@ function App() {
     e.preventDefault();
 
     if (editingId) {
-      // Mode Update
+      // Update
       await fetch(`http://localhost:5000/users/${editingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -32,7 +32,7 @@ function App() {
       });
       setEditingId(null);
     } else {
-      // Mode Tambah
+      // Add
       await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -59,7 +59,6 @@ function App() {
     setForm({ name: "", email: "", gender: "" });
   };
 
-  // 🔹 hitung statistik pengguna
   const totalUsers = users.length;
   const maleCount = users.filter((u) => u.gender === "Male").length;
   const femaleCount = users.filter((u) => u.gender === "Female").length;
@@ -67,7 +66,7 @@ function App() {
   const malePercentage = totalUsers ? ((maleCount / totalUsers) * 100).toFixed(1) : 0;
   const femalePercentage = totalUsers ? ((femaleCount / totalUsers) * 100).toFixed(1) : 0;
 
-  // Data untuk pie chart
+  // Data pie chart
   const dataChart = [
     { name: "Male", value: maleCount },
     { name: "Female", value: femaleCount },
@@ -94,7 +93,7 @@ function App() {
         </div>
       </div>
 
-      {/*Pie Chart */}
+      {/* Pie Chart */}
       <div className="bg-zinc-200 p-4 rounded-lg shadow mb-6">
         <h2 className="text-xl font-bold text-gray-700 mb-4 text-center">Gender Distribution</h2>
         <ResponsiveContainer width="100%" height={250}>
@@ -117,7 +116,7 @@ function App() {
         </ResponsiveContainer>
       </div>
       
-      {/* Form Tambah / Edit User */}
+      {/* Edit User */}
       <form
         onSubmit={handleSubmit}
         className="mb-6 bg-zinc-200 p-4 shadow-md rounded-lg"
